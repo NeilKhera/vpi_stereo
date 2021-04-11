@@ -1,0 +1,1 @@
+vpi_stereo
