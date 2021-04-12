@@ -12,9 +12,12 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package()
 
 include_directories(
-  include
   ${catkin_INCLUDE_DIRS}
 )
 
+#add_library(vpi_utils_library include/vpi_utils/src/Disparity.cpp)
+
+add_subdirectory(include/vpi_utils)
+
 add_executable(vpi_stereo_node src/vpi_stereo_node.cpp)
-target_link_libraries(vpi_stereo_node ${catkin_LIBRARIES})
+target_link_libraries(vpi_stereo_node ${catkin_LIBRARIES} vpi_utils_library)
